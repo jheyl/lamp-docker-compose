@@ -12,12 +12,14 @@ services:
       MYSQL_PASSWORD: mysql
   webserver:
     image: httpd:latest
+    restart: always
     volumes: 
       - ./www:/usr/local/apache2/htdocs
     ports:
       - "8020:80"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
+    restart: always
     ports:
       - "8080:80"
     environment:
